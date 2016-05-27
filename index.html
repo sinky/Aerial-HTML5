@@ -98,14 +98,18 @@ var transition = 2500;
 $(function(){
   $overlay = $('#overlay');
   $video = $('#player');
+  $mobile = $('#mobile');
   video = $video.get(0);
 
   if(is.mobile()) {
-    $('#mobile').show();
+    $mobile.show();
   }
+
   $video.click(function() {
     video.play();
+    $mobile.hide();
   });
+
   if(location.search.indexOf('local') != -1) {
     entries = entriesLocal;
     shuffle(entries);
